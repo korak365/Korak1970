@@ -1,0 +1,17 @@
+{
+  "name": "map-violations-monitor",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Alerts brands when retailers drop prices below MAP (Minimum Advertised Price).",
+  "engines": { "node": ">=20.0.0" },
+  "dependencies": {
+    "apify": "^3.4.2",
+    "crawlee": "^3.13.8",
+    "playwright": "^1.38.0",
+    "node-fetch": "^2.6.7",
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "scripts": { "start": "node src/main.js" },
+  "author": "MAP Violations Monitor",
+  "license": "ISC"
+}

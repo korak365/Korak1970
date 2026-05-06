@@ -1,0 +1,57 @@
+{
+  "title": "Input schema for MAP Violations Monitor",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": {
+      "title": "Start URLs",
+      "type": "array",
+      "description": "Retailer product or listing pages to monitor (e.g., product detail URLs, search/listing URLs)",
+      "editor": "requestListSources",
+      "prefill": [{"url": "https://example-retailer.com/product/12345"}]
+    },
+    "mapTableKvKey": {
+      "title": "MAP table KVS key",
+      "type": "string",
+      "description": "KVS key containing MAP info: JSON { \"PRODUCTID|SKU\": MAP, ... }",
+      "default": "MAP_TABLE"
+    },
+    "priceSelectors": {
+      "title": "Price selectors",
+      "type": "object",
+      "default": {
+        "price": ".product-price, .price, span[data-testid=\"product-price\"]",
+        "prodId": "[data-product-id], .sku, .product-sku",
+        "prodName": "h1.product-title, .product-title, .product-name"
+      },
+      "description": "CSS selectors for price, productId (SKU), and name/title (tune to each site)"
+    },
+    "maxRequestsPerCrawl": {
+      "title": "Max requests per crawl",
+      "type": "integer",
+      "default": 200
+    },
+    "usePlaywright": {
+      "title": "Use Playwright (browser for JS sites)",
+      "type": "boolean",
+      "default": false
+    },
+    "screenshot": {
+      "title": "Save screenshot on MAP violation",
+      "type": "boolean",
+      "default": true
+    },
+    "webhookUrl": {
+      "title": "Webhook URL (optional)",
+      "type": "string",
+      "description": "POST MAP violations as alerts (send product, retailer, price, MAP, URL, screenshotKey)",
+      "default": ""
+    },
+    "storagePrefix": {
+      "title": "KVS storage prefix",
+      "type": "string",
+      "default": "map-violations"
+    }
+  },
+  "required": ["startUrls", "mapTableKvKey"]
+}

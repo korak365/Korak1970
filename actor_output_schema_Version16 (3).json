@@ -1,0 +1,16 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Output of MAP Violations Monitor",
+  "properties": {
+    "overview": {
+      "type": "string",
+      "title": "MAP violations dataset",
+      "template": "{{links.apiDefaultDatasetUrl}}/items?view=overview"
+    },
+    "itemCount": {
+      "type": "number",
+      "title": "Total MAP violations",
+      "template": "{{run.usageInfo.items}}"
+    }
+  }
+}

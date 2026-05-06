@@ -1,0 +1,33 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "retailer": { "type": "string", "description": "Retailer host/domain" },
+    "productId": { "type": "string", "description": "Product identifier (SKU/code)" },
+    "productName": { "type": "string", "description": "Product title/name" },
+    "foundPrice": { "type": "number", "description": "Advertised price found" },
+    "mapPrice": { "type": "number", "description": "Minimum Advertised Price (MAP)" },
+    "currency": { "type": "string", "description": "Currency symbol (if extractable)" },
+    "priceSelector": { "type": "string", "description": "Selector that matched the price (for debugging)" },
+    "listingUrl": { "type": "string", "description": "Source product/listing url" },
+    "screenshotKey": { "type": "string", "description": "KVS key where screenshot was saved (if any)" },
+    "timestamp": { "type": "string", "description": "When violation was detected" }
+  },
+  "views": {
+    "overview": {
+      "title": "Violations Overview",
+      "transformation": { "fields": ["productId","productName","retailer","foundPrice","mapPrice","listingUrl","timestamp"] },
+      "display": {
+        "component": "table",
+        "properties": {
+          "productId": { "label": "Product ID", "format": "text" },
+          "productName": { "label": "Title", "format": "text" },
+          "retailer": { "label": "Retailer", "format": "text" },
+          "foundPrice": { "label": "Price", "format": "number" },
+          "mapPrice": { "label": "MAP", "format": "number" },
+          "listingUrl": { "label": "Link", "format": "link" },
+          "timestamp": { "label": "Detected", "format": "text" }
+        }
+      }
+    }
+  }
+}
